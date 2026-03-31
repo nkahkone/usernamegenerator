@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'services/username_generator.dart';
 
 void main() {
   runApp(const NameGenApp());
 }
+
 
 class NameGenApp extends StatelessWidget {
   const NameGenApp({super.key});
@@ -24,12 +26,14 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+final generator = UsernameGenerator();
+
 class _HomePageState extends State<HomePage> {
   String username = "Press the button to generate yourself a username";
 
   void generateName() {
     setState(() {
-      username = "TurboFalcon"; // temp example username
+      username = generator.generate();
     });
   }
 
