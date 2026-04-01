@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'services/username_generator.dart';
+import 'history_page.dart';
 
 void main() {
   runApp(const NameGenApp());
@@ -26,22 +27,43 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-final generator = UsernameGenerator();
-
 class _HomePageState extends State<HomePage> {
+  final generator = UsernameGenerator();
+  List<String> history = [];
   String username = "Press the button to generate yourself a username";
 
   void generateName() {
-    setState(() {
-      username = generator.generate();
-    });
-  }
+  setState(() {
+    username = generator.generate();
+    history.add(username);
+  });
+}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("NameGen"),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const DrawerHeader(
+              child: Text("Menu"),
+              ),
+              ListTile(
+                title: const Text("History"),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HistoryPage(history: history),
+                      ),
+                  );
+                }
+              )
+          ],
+        )
       ),
       body: Center(
         child: Column(
