@@ -52,6 +52,14 @@ class _HomePageState extends State<HomePage> {
               child: Text("Menu"),
               ),
               ListTile(
+                leading: const Icon(Icons.home),
+                title: const Text("Home"),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+
+              ListTile(
                 title: const Text("History"),
                 onTap: () {
                   Navigator.push(
