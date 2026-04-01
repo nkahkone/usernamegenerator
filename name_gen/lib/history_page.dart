@@ -13,7 +13,12 @@ class HistoryPage extends StatelessWidget {
         itemCount: history.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(history[index]),
+            title: Center(
+              child: Text(
+                history[index],
+                style: const TextStyle(fontSize: 18),
+                )
+            )
           );
         },
       ),
