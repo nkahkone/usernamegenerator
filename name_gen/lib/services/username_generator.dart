@@ -2,12 +2,11 @@ import 'dart:math';
 import "../data/word_lists.dart";
 
 class UsernameGenerator {
-  final Random _random = Random();
-
   String generate() {
-    final adj = adjectives[_random.nextInt(adjectives.length)];
-    final noun = nouns[_random.nextInt(nouns.length)];
-    
-    return "$adj$noun";
+    final r = Random();
+    final first = wordlist[r.nextInt(wordlist.length)];
+    final second = wordlist[r.nextInt(wordlist.length)];
+    return first +
+        second; // TODO: camelCase, PascalCase, erikoismerkit, 
   }
 }
