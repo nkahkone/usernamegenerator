@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'services/username_generator.dart';
+import 'widgets/app_drawer.dart';
 
 class GeneratorPage extends StatefulWidget {
   final List<String> history;
@@ -27,6 +28,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
       appBar: AppBar(
         title: const Text("Generator"),
       ),
+      drawer: AppDrawer(history: widget.history, currentPage: 'generator'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

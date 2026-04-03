@@ -5,7 +5,6 @@ void main() {
   runApp(const NameGenApp());
 }
 
-// Yhteinen historia kaikille sivuille
 List<String> history = [];
 
 class NameGenApp extends StatelessWidget {

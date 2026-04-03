@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'generator_page.dart';
 import 'history_page.dart';
+import 'widgets/app_drawer.dart';
 
 class HomePage extends StatelessWidget {
   final List<String> history;
@@ -11,6 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("NameGen")),
+      drawer: AppDrawer(history: history, currentPage: 'home'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
